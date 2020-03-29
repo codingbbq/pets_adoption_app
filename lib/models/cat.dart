@@ -1,12 +1,8 @@
-enum Gender {
-  male, female
-}
-
 class Cat {
   final int id;
   final String name;
   final String type;
-  final Gender gender;
+  final int gender;
   final int age;
   final double distance;
   final String location;
@@ -37,7 +33,7 @@ final List<Cat> cat = [
     id: 1,
     name: "Sola",
     type: "Abbysinian Cat",
-    gender: Gender.male,
+    gender: 1,
     age: 2,
     distance: 3.5,
     location: "5 Bouvlerian street",
@@ -51,7 +47,7 @@ final List<Cat> cat = [
     id: 2,
     name: "Orion",
     type: "Abbysinian Cat",
-    gender: Gender.female,
+    gender: 0,
     age: 2,
     distance: 3.5,
     location: "5 Bouvlerian street",

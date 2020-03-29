@@ -11,10 +11,21 @@ class Home extends StatelessWidget {
           backgroundColor: bgColor,
           body: Container(
             child: Column(
+              mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Header(),
-                SizedBox(height: 10.0,),
-                Layout()
+                Expanded(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(height: 10.0,),
+                        Layout()
+                      ],
+                    ),
+                  ),
+                )
+                
               ],
             ),
           ),

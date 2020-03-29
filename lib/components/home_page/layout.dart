@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pets_adoption_app/components/home_page/category_selection.dart';
 import 'package:pets_adoption_app/components/shared/searchBox.dart';
 import 'package:pets_adoption_app/utils/colors.dart';
+import 'package:pets_adoption_app/components/home_page/list_data.dart';
 
 class Layout extends StatelessWidget {
   @override
@@ -19,7 +20,9 @@ class Layout extends StatelessWidget {
 
             SizedBox(height: 10.0,),
 
-            CategorySelection()
+            CategorySelection(),
+
+            ListData(),
           ],
         ),
       ),

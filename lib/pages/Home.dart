@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pets_adoption_app/components/header.dart';
-import 'package:pets_adoption_app/components/homePageBody.dart';
+import 'package:pets_adoption_app/components/home_page/header.dart';
+import 'package:pets_adoption_app/components/home_page/layout.dart';
 import 'package:pets_adoption_app/utils/colors.dart';
   
 class Home extends StatelessWidget {
@@ -14,7 +14,7 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 Header(),
                 SizedBox(height: 10.0,),
-                HomePageBody()
+                Layout()
               ],
             ),
           ),

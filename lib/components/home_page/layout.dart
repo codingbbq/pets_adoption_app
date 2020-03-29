@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pets_adoption_app/components/searchBox.dart';
+import 'package:pets_adoption_app/components/home_page/category_selection.dart';
+import 'package:pets_adoption_app/components/shared/searchBox.dart';
 import 'package:pets_adoption_app/utils/colors.dart';
 
-class HomePageBody extends StatelessWidget {
+class Layout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,6 +16,10 @@ class HomePageBody extends StatelessWidget {
         child: Column(
           children: <Widget>[
             SearchBox(),
+
+            SizedBox(height: 10.0,),
+
+            CategorySelection()
           ],
         ),
       ),

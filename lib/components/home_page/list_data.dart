@@ -44,7 +44,18 @@ class CatCard extends StatelessWidget {
             margin: const EdgeInsets.only(top: 50.0),
             width: MediaQuery.of(context).size.width * 0.90,
             height: 150,
-            color: Colors.white,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15.0),
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                  color: Color(0xFFC7C7C7),
+                  spreadRadius: 5.0,
+                  blurRadius: 30.0,
+                  offset: Offset(0, 0)
+                )
+              ]
+            ),
             child: Container(
               margin: const EdgeInsets.only(left: 160),
               padding: const EdgeInsets.all(15.0),
@@ -89,7 +100,21 @@ class CatCard extends StatelessWidget {
                   SizedBox(height: 10.0,),
 
                   Row(
-
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Icon(
+                        Icons.location_on,
+                        color: themeColor,
+                      ),
+                      SizedBox(width: 5.0,),
+                      Text(
+                        "Distance : " + cat.distance.toString() + " km",
+                        style: TextStyle(
+                          color: secondaryTextColor,
+                          fontSize: 14.0
+                        ),
+                      )
+                    ],
                   )
 
                 ],

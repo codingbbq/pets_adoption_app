@@ -6,7 +6,13 @@ class ListData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: cat.map((cat) => CatCard(cat: cat)).toList()
+      children: cat.map((cat) => 
+        GestureDetector(
+          onTap: (){
+            Navigator.pushNamed(context, '/detail');
+          }, 
+          child: CatCard(cat: cat)
+        )).toList()
     );
   }
 }

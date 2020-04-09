@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pets_adoption_app/models/cat.dart';
 import 'package:pets_adoption_app/utils/colors.dart';
+import 'package:pets_adoption_app/utils/common_fn.dart';
 
 class ListData extends StatelessWidget {
   @override
@@ -9,7 +10,11 @@ class ListData extends StatelessWidget {
       children: cat.map((cat) => 
         GestureDetector(
           onTap: (){
-            Navigator.pushNamed(context, '/detail');
+            Navigator.pushNamed(
+              context, 
+              '/detail',
+              arguments: cat
+            );
           }, 
           child: CatCard(cat: cat)
         )).toList()
@@ -24,22 +29,6 @@ class CatCard extends StatelessWidget {
   });
 
   
-  showGenderIcon(int gender) {
-    if(gender == 1) {
-      return Icon(
-        Icons.add_circle_outline,
-        size: 20.0,
-        color: iconColor,
-      );
-    }else{
-      return Icon(
-        Icons.remove_circle_outline,
-        size: 20.0,
-        color: iconColor,
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -79,7 +68,7 @@ class CatCard extends StatelessWidget {
                           fontSize: 24.0
                         ),
                       ),
-                      showGenderIcon(cat.gender)
+                      CommonFn.showGenderIcon(cat.gender)
                     ],
                   ),
 
@@ -146,7 +135,6 @@ class CatCard extends StatelessWidget {
             alignment: Alignment(-0.9, -50),
             child: Image.asset(
               cat.image,
-              
             ),
           )
           

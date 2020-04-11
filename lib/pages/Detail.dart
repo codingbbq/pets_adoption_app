@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pets_adoption_app/utils/colors.dart';
 import 'package:pets_adoption_app/models/cat.dart';
 import 'package:pets_adoption_app/utils/common_fn.dart';
+import 'package:pets_adoption_app/utils/strings.dart';
 class DetailPage extends StatelessWidget {
 
   @override
@@ -32,6 +33,7 @@ class DetailPage extends StatelessWidget {
 
                   Image.asset(
                     args.image,
+                    width: MediaQuery.of(context).size.width * 0.50,
                   ),
 
                   IconButton(
@@ -45,16 +47,14 @@ class DetailPage extends StatelessWidget {
 
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-                padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
                 decoration: BoxDecoration(
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(20.0),
-                  border: Border.all(
-                    color: Colors.red
-                  ),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
                       color: Colors.grey[200],
-                      blurRadius: 20.0,
+                      blurRadius: 10.0,
                       spreadRadius: 10.0,
                       offset: Offset(0.0, 0.2)
                     )
@@ -68,14 +68,55 @@ class DetailPage extends StatelessWidget {
                         Text(
                           args.name,
                           style: TextStyle(
-                            fontSize: 40.0,
+                            fontSize: 30.0,
                             color: textColor,
                             fontWeight: FontWeight.bold
                           ),
                         ),
                         CommonFn.showGenderIcon(args.gender)
                       ],
-                    )
+                    ),
+                    SizedBox(height: 10.0,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          args.type,
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            color: secondaryTextColor
+                          ),
+                        ),
+                        Text(
+                          '${args.age.toString()} $AGE_LBL',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            color: secondaryTextColor
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5.0,),
+                    Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.location_on,
+                          size: 30.0,
+                          color: themeColor,
+                        ),
+                        Text(
+                          args.location,
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            color: secondaryTextColor
+                          ),
+                        )
+                      ],
+                    ),
+
                   ],
                 ),
               )

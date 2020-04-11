@@ -9,7 +9,7 @@ class CategorySelection extends StatelessWidget {
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
-          children: categories.map((category) => Category(name : category.name)).toList()
+          children: categories.map((category) => Category(name : category.name, icon: category.category)).toList()
         )
       )
     );
@@ -19,8 +19,9 @@ class CategorySelection extends StatelessWidget {
 class Category extends StatelessWidget {
 
   final String name;
+  final Icon icon;
 
-  const Category({Key key, this.name}) : super(key: key);
+  const Category({Key key, this.name, this.icon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +50,7 @@ class Category extends StatelessWidget {
                 style: BorderStyle.none
               )
             ),
+            child: icon,
           ),
 
           SizedBox(height: 5.0,),

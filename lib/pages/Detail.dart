@@ -112,72 +112,89 @@ class DetailPage extends StatelessWidget {
                         SizedBox(height: 20.0,),
 
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 150.0),
+                          child: Column(
                             children: <Widget>[
+                              // Owner image, name and information
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  // Owner profile
-                                  Container(
-                                    margin: EdgeInsets.only(right: 20.0),
-                                    width: 50,
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      image: DecorationImage(
-                                        
-                                        image: AssetImage(
-                                          "assets/images/profile.jpg"
-                                        )
-                                      )
-                                    ),
-                                  ),
-
-                                  Column(
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      Text(
-                                        args.owner,
-                                        style: TextStyle(
-                                          fontSize: 18.0,
-                                          color: textColor
+                                      // Owner profile
+                                      Container(
+                                        margin: EdgeInsets.only(right: 20.0),
+                                        width: 50,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                            
+                                            image: AssetImage(
+                                              "assets/images/profile.jpg"
+                                            )
+                                          )
                                         ),
                                       ),
 
-                                      SizedBox(
-                                        height: 5.0,
-                                      ),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            args.owner,
+                                            style: TextStyle(
+                                              fontSize: 18.0,
+                                              color: textColor
+                                            ),
+                                          ),
 
-                                      Text(
-                                        OWNER,
-                                        style: TextStyle(
-                                          fontSize: 14.0,
-                                          color: secondaryTextColor
-                                        ),
+                                          SizedBox(
+                                            height: 5.0,
+                                          ),
 
+                                          Text(
+                                            OWNER,
+                                            style: TextStyle(
+                                              fontSize: 14.0,
+                                              color: secondaryTextColor
+                                            ),
+
+                                          )
+                                        ],
                                       )
                                     ],
+                                  ),
+
+                                  Text(
+                                    args.postdate,
+                                    style: TextStyle(
+                                      color: secondaryTextColor,
+                                      fontSize: 16.0,
+                                    ),
                                   )
                                 ],
                               ),
 
+                              SizedBox(height: 20.0,),
+
                               Text(
-                                args.postdate,
+                                args.summary,
                                 style: TextStyle(
-                                  color: secondaryTextColor,
-                                  fontSize: 16.0,
+                                  fontSize: 18.0,
+                                  color: secondaryTextColor
                                 ),
-                              )
+                              ),
+
+
                             ],
-                          ),
-                        )
+                          )
+                        ),
+                        
                       ],
                     ),
-                    SizedBox(height: 1000,),
                     FixedHeader(),
                   ],
                 )

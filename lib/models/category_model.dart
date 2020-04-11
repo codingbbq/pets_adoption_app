@@ -1,33 +1,43 @@
+import 'package:flutter/material.dart';
+
 class Category{
   final String name;
+  final Icon category;
 
   Category({
-    this.name 
+    this.name,
+    this.category
   });
 }
 
 final Category cat = Category(
-  name: "Cats"
+  name: "Cats",
+  category: Icon(Icons.call)
 );
 
 final Category dog = Category(
-  name: "Dogs"
+  name: "Dogs",
+  category: Icon(Icons.call_end)
 );
 
 final Category parrot = Category(
-  name: "Parrots"
+  name: "Parrots",
+  category: Icon(Icons.call_made)
 );
 
 final Category bunnies = Category(
-  name: "Bunnies"
+  name: "Bunnies",
+  category: Icon(Icons.call_merge)
 );
 
 final Category horse = Category(
-  name: "Horses"
+  name: "Horses",
+  category: Icon(Icons.call_missed)
 );
 
 final Category sparrow = Category(
-  name: "Sparrows"
+  name: "Sparrows",
+  category: Icon(Icons.call_missed_outgoing)
 );
 
 final List<Category> categories = [

@@ -4,7 +4,8 @@ import 'package:pets_adoption_app/utils/colors.dart';
 class FixedHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Positioned(
+    return Container(
+      color: Colors.transparent,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,

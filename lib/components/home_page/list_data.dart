@@ -1,23 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:pets_adoption_app/models/cat.dart';
+import 'package:pets_adoption_app/services/category_service.dart';
 import 'package:pets_adoption_app/utils/colors.dart';
 import 'package:pets_adoption_app/utils/common_fn.dart';
 
 class ListData extends StatelessWidget {
+
+  final CategoryService categoryService = CategoryService();
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: cat.map((cat) => 
-        GestureDetector(
-          onTap: (){
-            Navigator.pushNamed(
-              context, 
-              '/detail',
-              arguments: cat
-            );
-          }, 
-          child: CatCard(cat: cat)
-        )).toList()
+    return FutureBuilder(
+      future: categoryService.fetchData(),
+      builder: (BuildContext context, AsyncSnapshot<List<Cat>> snapshot){
+        if(snapshot.hasData){
+          List<Cat> catData = snapshot.data;
+
+          return Column(
+            children: catData.map((cat) => 
+              GestureDetector(
+                onTap: (){
+                  Navigator.pushNamed(
+                    context, 
+                    '/detail',
+                    arguments: cat
+                  );
+                }, 
+                child: CatCard(cat: cat)
+              )).toList()
+          );
+
+        }
+
+        return CircularProgressIndicator();
+      },
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Cat {
   final int id;
   final String name;
@@ -12,50 +14,33 @@ class Cat {
   final String image;
 
   Cat({
-    this.id,
-    this.name,
-    this.type,
-    this.gender,
-    this.age,
-    this.distance,
-    this.location,
-    this.owner,
-    this.postdate,
-    this.summary,
-    this.image
+    @required this.id,
+    @required this.name,
+    @required this.type,
+    @required this.gender,
+    @required this.age,
+    @required this.distance,
+    @required this.location,
+    @required this.owner,
+    @required this.postdate,
+    @required this.summary,
+    @required this.image
   });
 
+  factory Cat.fromJson(Map<String, dynamic> json) {
+    return Cat(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      type: json['type'] as String,
+      gender: json['gender'] as int,
+      age: json['age'] as int,
+      distance: json['distance'] as double,
+      location: json['location'] as String,
+      owner: json['owner'] as String,
+      postdate: json['postdate'] as String,
+      summary: json['summary'] as String,
+      image: json['image'] as String
+    );
+  }
+
 }
-
-final List<Cat> cat = [
-
-  Cat(
-    id: 1,
-    name: "Sola",
-    type: "Abbysinian Cat",
-    gender: 1,
-    age: 2,
-    distance: 3.5,
-    location: "5 Bouvlerian street",
-    owner: "Maya Doe",
-    postdate: "25th March 2020",
-    summary: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    image: "assets/images/cat/cat-1.png"
-  ),
-
-  Cat(
-    id: 2,
-    name: "Orion",
-    type: "Abbysinian Cat",
-    gender: 0,
-    age: 2,
-    distance: 3.5,
-    location: "5 Bouvlerian street",
-    owner: "Maya Doe",
-    postdate: "25th March 2020",
-    summary: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    image: "assets/images/cat/cat-2.png"
-  ),
-
-
-];

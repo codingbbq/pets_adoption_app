@@ -5,10 +5,14 @@ import 'package:pets_adoption_app/models/cat.dart';
 
 class CategoryService {
 
-  final String categoryURLCat = "http://www.mocky.io/v2/5e971d5c3000005c00b6dbdb";
+  String url;
 
-  Future<List<Cat>> fetchData() async{
-    Response res = await get(categoryURLCat);
+  Future<List<Cat>> fetchData({cat: String}) async{
+
+    if(cat == 'cat') {
+      url = "http://www.mocky.io/v2/5e971d5c3000005c00b6dbdb";
+    }
+    Response res = await get(url);
 
     if(res.statusCode == 200) {
       List<dynamic> body = jsonDecode(res.body);

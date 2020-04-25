@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pets_adoption_app/models/cat.dart';
+import 'package:pets_adoption_app/services/category_provider.dart';
 import 'package:pets_adoption_app/services/category_service.dart';
 import 'package:pets_adoption_app/utils/colors.dart';
 import 'package:pets_adoption_app/utils/common_fn.dart';
+import 'package:provider/provider.dart';
 
 class ListData extends StatelessWidget {
 
@@ -10,8 +12,11 @@ class ListData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    String categorySelected = Provider.of<CategoryProvider>(context, listen: false).getCategorySelected;
+
     return FutureBuilder(
-      future: categoryService.fetchData(),
+      future: categoryService.fetchData(cat: categorySelected),
       builder: (BuildContext context, AsyncSnapshot<List<Cat>> snapshot){
         if(snapshot.hasData){
           List<Cat> catData = snapshot.data;

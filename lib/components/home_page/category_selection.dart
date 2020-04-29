@@ -30,9 +30,18 @@ class Category extends StatefulWidget {
 }
 
 class _CategoryState extends State<Category> {
+  
+  Color defaultColor = Colors.white;
 
   @override
   Widget build(BuildContext context) {
+
+    String selectedCategory = Provider.of<CategoryProvider>(context, listen: false).getCategorySelected;
+    if(selectedCategory == widget.name) {
+      defaultColor = themeColor;
+    } else {
+      defaultColor = Colors.white;
+    }
     return InkWell(
       onTap: () {
         Provider.of<CategoryProvider>(context, listen: false).setCategorySelected(widget.name);
@@ -48,7 +57,7 @@ class _CategoryState extends State<Category> {
               height: 75,
               margin: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: defaultColor,
                 boxShadow: <BoxShadow>[
                   BoxShadow(
                     color: Colors.grey[200],
